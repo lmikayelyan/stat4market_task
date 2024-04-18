@@ -1,0 +1,32 @@
+definitions:
+  model.EventInput:
+    properties:
+      event_time:
+        type: string
+      event_type:
+        type: string
+      payload:
+        type: string
+      user_id:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /api/event:
+    post:
+      description: Post event
+      parameters:
+      - description: Event Info
+        in: body
+        name: eventInput
+        required: true
+        schema:
+          $ref: '#/definitions/model.EventInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+      summary: Post event
+swagger: "2.0"
